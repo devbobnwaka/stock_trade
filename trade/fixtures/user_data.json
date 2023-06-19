@@ -1,0 +1,93 @@
+[
+    {
+        "model": "trade.Trader",
+        "fields": {
+          "username": "admin1",
+          "password": "admin12345678",
+          "is_admin": true,
+          "is_active": true,
+          "is_staff": true
+        }
+    },
+    {
+        "model": "trade.Trader",
+        "fields": {
+          "username": "user1",
+          "password": "admin12345678",
+          "is_user": true
+        }
+    },
+    {
+      "model": "trade.Trader",
+      "fields": {
+        "username": "user2",
+        "password": "admin12345678",
+        "is_user": true
+      }
+  },  
+  {
+    "model": "trade.Trader",
+    "fields": {
+      "username": "user3",
+      "password": "admin12345678",
+      "is_user": true
+    }
+  },  
+  {
+    "model": "trade.Trader",
+    "fields": {
+      "username": "user4",
+      "password": "admin12345678",
+      "is_user": true
+    }
+  },  
+  {
+    "model": "trade.Trader",
+    "fields": {
+      "username": "user5",
+      "password": "admin12345678",
+      "is_user": true
+    }
+  },  
+  {
+    "model": "trade.Trader",
+    "fields": {
+      "username": "user6",
+      "password": "admin12345678",
+      "is_user": true
+    }
+  },  
+  {
+    "model": "trade.Trader",
+    "fields": {
+      "username": "user7",
+      "password": "admin12345678",
+      "is_user": true
+    }
+  },       
+  {
+    "model": "trade.Trader",
+    "fields": {
+      "username": "user8",
+      "password": "admin12345678",
+      "is_user": true
+    }
+  },  
+  {
+    "model": "trade.Trader",
+    "fields": {
+      "username": "user9",
+      "password": "admin12345678",
+      "is_user": true
+    }
+  },  
+  {
+    "model": "trade.Trader",
+    "fields": {
+      "username": "user10",
+      "password": "admin12345678",
+      "is_user": true
+    }
+  }
+]
+  
