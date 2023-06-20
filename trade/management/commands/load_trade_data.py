@@ -20,8 +20,7 @@ class Command(BaseCommand):
                 profit_loss = round(random.uniform(-10, 10), 2) 
 
                 trade_qs = Trade.objects.filter(trader=trader) 
-                if not trade_qs:
-                    # print('hi')
+                if trade_qs:
                     # Save the profit/loss data to the database or perform other operations
                     trade = Trade(trader=trader, timestamp=current_time, profit_loss=profit_loss)
                     trade.save()

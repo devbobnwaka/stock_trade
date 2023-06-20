@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 
-user
+{% for trade in trades %}
+bal {{ trade.balance }} || --- ||
+<br>
+pro {{ trade.profit_loss }} || --- ||
+<br>
+{% endfor %}
 {% endblock content %}

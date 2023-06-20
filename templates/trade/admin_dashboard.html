@@ -2,5 +2,10 @@
 
 {% block content %}
 
-admin
+{% for trader in traders %}
+{% if trader.is_user %}
+    username {{ trader.is_user }} || --- ||
+    <br>
+{% endif %}
+{% endfor %}
 {% endblock content %}
