@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block login_form %}
 
+<div class="page-breadcrumb">
 <h3>Login</h3>
-
 <form method='POST' action=''>
     {% csrf_token %}
     {{ form.as_p}}
 <button type='submit'>Login</button>
 </form>
-{% endblock content %}
+</div>
+{% endblock login_form %}
