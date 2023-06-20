@@ -66,7 +66,7 @@ class Trader(AbstractBaseUser, PermissionsMixin):
 
 class Trade(models.Model):
     trader = models.ForeignKey(Trader, on_delete=models.CASCADE)
-    balance = models.DecimalField(max_digits=10, decimal_places=2)
+    balance = models.DecimalField(max_digits=10, decimal_places=2, default=100)
     profit_loss = models.DecimalField(max_digits=10, decimal_places=2)
     timestamp = models.DateTimeField(default=timezone.now)
 

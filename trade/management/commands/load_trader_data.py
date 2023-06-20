@@ -1,9 +1,9 @@
 from django.contrib.auth.hashers import make_password
 from django.core.management.base import BaseCommand
-from trade.models import Trader 
+from trade.models import Trader
 
 class Command(BaseCommand):
-    help = 'Load seed data'
+    help = 'Load trader data'
 
     def handle(self, *args, **options):
         password = 'admin12345678'
@@ -14,4 +14,4 @@ class Command(BaseCommand):
             user = Trader.objects.create(username=f"user{i}", password=hashed_password, is_user=True)
             user.save()
 
-        self.stdout.write(self.style.SUCCESS('Seed data loaded successfully.'))
+        self.stdout.write(self.style.SUCCESS('Trader data loaded successfully.'))
