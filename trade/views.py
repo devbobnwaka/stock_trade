@@ -18,10 +18,14 @@ class Login(RedirectHomeIfLogInMixin, LoginView):
 
 class Dashboard(LoginRequiredMixin, View):
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         if self.request.user.is_admin:
+            pk = kwargs.get('pk')
             traders = Trader.objects.all()
+            if pk:
+                trades = Trade.objects.filter(trader = pk)
             context = {
+                "trades": trades,
                 "traders": traders
             }
             # Use the template for admin template

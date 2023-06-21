@@ -1,16 +1,11 @@
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import AbstractUser
-# from django.contrib.auth import get_user_model
-# Trader=get_user_model()
-
-
-# Create your models here.
+from django.urls import reverse
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser, PermissionsMixin
 )
 
-
+# Create your models here.
 class TraderManager(BaseUserManager):
     def create_user(self, username, password=None, **kwargs):
         """
@@ -63,6 +58,9 @@ class Trader(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
+
+    def get_absolute_url(self):
+        return reverse("dashboard-key", kwargs={"pk": self.pk})
 
 class Trade(models.Model):
     trader = models.ForeignKey(Trader, on_delete=models.CASCADE)

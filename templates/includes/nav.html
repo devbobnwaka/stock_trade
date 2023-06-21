@@ -14,16 +14,22 @@
 {% if user.is_admin %}
 <nav class="sidebar-nav">
     <ul id="sidebarnav" class="pt-4">
-      <li class="sidebar-item">
-        <a
-          class="sidebar-link waves-effect waves-dark sidebar-link"
-          href="index.html"
-          aria-expanded="false"
-          ><i class="mdi mdi-view-dashboard"></i
-          ><span class="hide-menu">Dashboard</span></a
-        >
-      </li>
-      <li class="sidebar-item">
+      {% for trader in traders %}
+        {% if trader.is_admin %}
+          
+        {% else %}
+        <li class="sidebar-item">
+          <a
+            class="sidebar-link waves-effect waves-dark sidebar-link"
+            href="{{trader.get_absolute_url}}"
+            aria-expanded="false"
+            ><i class="mdi mdi-view-dashboard"></i
+            ><span class="hide-menu">{{ trader.username}}</span></a
+          >
+        </li>
+        {% endif %}
+      {% endfor %}
+      {% comment %} <li class="sidebar-item">
         <a
           class="sidebar-link waves-effect waves-dark sidebar-link"
           href="charts.html"
@@ -31,7 +37,7 @@
           ><i class="mdi mdi-chart-bar"></i
           ><span class="hide-menu">Charts</span></a
         >
-      </li>
+      </li> {% endcomment %}
     </ul>
   </nav>
   {% endif %}
