@@ -44,9 +44,18 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Real Time Chart</h5>
                   {% comment %} <div id="real-time" style="height: 400px"></div> {% endcomment %}
-                  <canvas id="myChart"></canvas>
+                  {% if pk %}
+                    {% comment %} <h5 class="card-title">Real Time Chart</h5> {% endcomment %}
+                    {% if not trades %}
+                      <h1 class="card-title">No user for this chart</h1>
+                    {% else %}
+                      <h1> {% with trades|first as trade %}{{trade.trader.username|capfirst}}{% endwith %} Real Time Chart </h1>
+                      <canvas id="myChart"></canvas>
+                    {% endif %}
+                  {% else %}
+                  <h1 class="card-title">Select a user to view the user chart</h1>
+                  {% endif %}
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, DetailView
 from django.views import View
 from django.urls import reverse_lazy
@@ -19,18 +19,20 @@ class Login(RedirectHomeIfLogInMixin, LoginView):
 class Dashboard(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
         if self.request.user.is_admin:
-            pk = kwargs.get('pk')
+            context = {}
             traders = Trader.objects.all()
             if pk:
                 trades = Trade.objects.filter(trader = pk)
-            context = {
-                "trades": trades,
-                "traders": traders
-            }
+                context['trades'] = trades
+                context['pk'] = True
+            context['traders'] = traders
             # Use the template for admin template
             return render(request, 'trade/admin_dashboard.html', context)  
         else:
+            if pk:
+                return redirect('dashboard')
             trades = Trade.objects.filter(trader = self.request.user)
             context = {
                 "trades": trades
