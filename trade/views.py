@@ -4,6 +4,7 @@ from django.views import View
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
+import json
 
 from .models import Trade, Trader
 from .permissions import RedirectHomeIfLogInMixin
