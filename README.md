@@ -2,6 +2,7 @@
 A sample project.
 
 # TO TEST THE APPLICATION
+INITIAL URL : http://127.0.0.1:8000/login/
 
 ## Getting Started
 
