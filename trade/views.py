@@ -9,8 +9,6 @@ import json
 from .models import Trade, Trader
 from .permissions import RedirectHomeIfLogInMixin
 
-
-
 # Create your views here.
 class Home(RedirectHomeIfLogInMixin, RedirectView):
     url = reverse_lazy('login')
