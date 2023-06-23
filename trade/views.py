@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import TemplateView, DetailView, RedirectView
 from django.views import View
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
@@ -12,6 +12,9 @@ from .permissions import RedirectHomeIfLogInMixin
 
 
 # Create your views here.
+class Home(RedirectHomeIfLogInMixin, RedirectView):
+    url = reverse_lazy('login')
+
 class Login(RedirectHomeIfLogInMixin, LoginView):
     template_name = "accounts/login.html"
 
